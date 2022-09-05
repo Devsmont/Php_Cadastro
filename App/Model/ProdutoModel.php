@@ -21,7 +21,7 @@ class ProdutoModel{
 
         $dao = new ProdutoDAO();
 
-        //vendo se a prorpie3dade id foi preenchida no model
+        //vendo se a prorpiedade id foi preenchida no model
         if($this->id == null){
 
             //insert recebe o nome do proprio objeto

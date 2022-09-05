@@ -1,32 +1,19 @@
 <?php
 
-//o autoload faz com que agnete nao precise mais do include, pq ai o php procurs rprwa gente
 
-spl_autoload_register(function ($nome_da_classe) {
 
-    //echo "Tentou dar include de: " . $nome_da_classe;
- 
-    //ele serve para o sistema inteiro por isso tem o nome_da_classe
+spl_autoload_register(function ($nome_da_classe) 
+{
 
-    $classe_controller = 'Controller/' . $nome_da_classe . ".php";
-    $classe_model = 'Model/' . $nome_da_classe . ".php";
-    $classe_dao = 'DAO/' . $nome_da_classe . ".php";
+    
 
-    //se o aquivo pipi existir ele da o include
-    //se naão existir ele vai pro de baicos
+  $arquivo = BASEDIR . '/' . $nome_da_classe . '.php';
 
-    if(file_exists($classe_controller))
-    {
-        include $classe_controller;
+   if(file_exists($arquivo))
+  {
+    include $arquivo;
 
-    } else if(file_exists($classe_model)) {
+  }else
+     exit('Arquivo não encontrado. Arquivo ' . $arquivo . "<br />");
 
-        include $classe_model;
-
-    } else if(file_exists($classe_dao)) {
-        
-        include $classe_dao;
-    }
-
-    //include 'classes/' . $class . '.class.php';
 });
