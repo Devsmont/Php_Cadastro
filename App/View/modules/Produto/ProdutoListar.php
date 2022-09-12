@@ -35,6 +35,8 @@
             <td><?= $item->codigo_barras?></td>
             <td><?= $item->marca ?></td>
             <td><?= $item->descricao ?></td>
+            <td><?= $item->fornecedor?></td>
+            <td><?= $item->valor?></td>
         </tr>
         <?php endforeach ?>   
         

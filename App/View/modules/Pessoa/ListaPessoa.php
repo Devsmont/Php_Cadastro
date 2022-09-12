@@ -16,6 +16,9 @@
             <th>Nome</th>
             <th>CPF</th>
             <th>Data Nascimento</th>
+            <th>email</th>
+            <th>telefone</th>
+            <th>endereco</th>
         </tr>
 
         <?php foreach($model->rows as $item): ?>
@@ -31,7 +34,16 @@
             </td>
 
             <td><?= $item->cpf ?></td>
-            <td><?= $item->data_nascimento ?></td>
+            <td><?= $item->data_nascimento ?>
+            <a href="/pessoa/form?id=<?= $item->id ?>"><?= $item->data_nascimento ?></a>
+        </td>
+            <td><?= $item->email ?>
+            <a href="/pessoa/form?id=<?= $item->id ?>"><?= $item->email ?></a>
+        </td>
+            <td><?= $item->telefone ?></td>
+            <td><?= $item->endereco ?>
+            <a href="/pessoa/form?id=<?= $item->id ?>"><?= $item->endereco ?></a>
+        </td>
         </tr>
         <?php endforeach ?>
 

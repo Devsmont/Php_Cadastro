@@ -10,13 +10,13 @@
  abstract class DAO 
  {
 
-    protected $conexão;
+    protected $conexao;
 
     public function __construct()
     {
         $dsn = "mysql:host=" . $_ENV['db']['host'] . ";dbname=" . $_ENV['db']['database'];
 
-        $this->conexão = new PDO($dsn, $_ENV['db']['user'], $_ENV['db']['pass']);
+        $this->conexao = new PDO($dsn, $_ENV['db']['user'], $_ENV['db']['pass']);
     }
 
  }

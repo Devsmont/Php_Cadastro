@@ -7,17 +7,15 @@ use App\Model\ProdutoModel;
 use \PDO;
 
 
-class ProdutoDAO{
+class ProdutoDAO extends DAO
+{
 
-    private $conexao;
+    
 
     function __construct()
     {
-        //entrar no servidor do mysql
-        $dsn = "mysql:host=localhost:3307;dbname=db_sistema"; 
-
-        //conecta no servidor de mysql
-        $this->conexao = new PDO($dsn, 'root', 'etecjau');
+        
+        parent::__construct();
     }
 
     //esse insert pega as coisas da model e manda na tabela poara que o usuario veja
