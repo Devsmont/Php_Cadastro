@@ -12,6 +12,8 @@ class PessoaController extends Controller
    
     public static function index()
     {      
+        parent::isAuthenticated();
+
         $model = new PessoaModel(); // Instância da Model
         $model->getAllRows(); // Obtendo todos os registros, abastecendo a propriedade $rows da model.
 
@@ -24,6 +26,10 @@ class PessoaController extends Controller
      */
     public static function form()
     {
+
+        parent::isAuthenticated();
+
+
         $model = new PessoaModel();
 
         if(isset($_GET['id'])) // Verificando se existe uma variável $_GET
@@ -40,6 +46,8 @@ class PessoaController extends Controller
      */
     public static function save()
     {
+
+        parent::isAuthenticated();
        
         
        // Abaixo cada propriedade do objeto sendo abastecida com os dados informados
@@ -67,6 +75,9 @@ class PessoaController extends Controller
      */
     public static function delete()
     {
+
+        parent::isAuthenticated();
+
         $model = new PessoaModel();
 
         $model->delete( (int) $_GET['id'] ); // Enviando a variável $_GET como inteiro para o método delete

@@ -5,9 +5,11 @@ namespace App\Controller;
 use App\Model\CategoriaModel;
 
 
-class CategoriaController{
+class CategoriaController extends Controller{
 
     public static function index(){
+
+        parent::isAuthenticated();
 
         $model = new CategoriaModel();
         $model->getAllRows();
@@ -16,6 +18,8 @@ class CategoriaController{
     }
 
     public static function form(){
+
+        parent::isAuthenticated();
 
         $model = new CategoriaModel();
 
@@ -26,6 +30,8 @@ class CategoriaController{
     }
 
     public static function save(){
+
+        parent::isAuthenticated();
 
         include 'Model\CategoriaModel.php';
 
@@ -40,6 +46,9 @@ class CategoriaController{
     }
 
     public static function delete(){
+
+        parent::isAuthenticated();
+        
         $model = new CategoriaModel();
 
         $model->delete((int) $_GET['id']);

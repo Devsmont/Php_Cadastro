@@ -1,0 +1,7 @@
+use db_sistema;
+
+INSERT INTO usuario (email, senha, nome)
+VALUES ('davi@gmail.com',sha1('123'),'davi');
+
+
+select * FROM usuario;
