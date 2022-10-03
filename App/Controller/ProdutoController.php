@@ -6,10 +6,12 @@ namespace App\Controller;
 use App\Model\ProdutoModel;
 
 
-    class ProdutoController{
+    class ProdutoController extends Controller{
        
         public static function index() 
     {
+        parent::isAuthenticated();
+        
         //colocar isso depois no view
         $model = new ProdutoModel();
         $model->getAllRows(); //pegando todos os registros e colococando na $rows da model
@@ -19,6 +21,9 @@ use App\Model\ProdutoModel;
     // manda um view com formulario para o usuario
         public static function form()
     {
+
+        parent::isAuthenticated();
+
         $model = new ProdutoModel();
 
         if(isset($_GET['id']))  // Verificando se existe uma variável $_GET
@@ -29,6 +34,9 @@ use App\Model\ProdutoModel;
 
     //preenche o model para ser enviado ao banco de dados
     public static function save(){
+
+        parent::isAuthenticated();
+
         include 'Model/ProdutoModel.php'; //incluindo 
 
         //cada propriedade sando abastecida com os dados informados
@@ -49,6 +57,9 @@ use App\Model\ProdutoModel;
 
     //Método para tratar a rota delete. 
     public static function delete(){
+
+        parent::isAuthenticated();
+
         $model = new ProdutoModel();
 
         $model->delete((int) $_GET['id']); //enviando o $-GET para o delete (tadinho)
